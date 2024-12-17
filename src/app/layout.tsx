@@ -2,6 +2,7 @@ import "./globals.css"; // Import global styles
 import { Metadata } from "next";
 import StoreProvider from "./StoreProvider";
 import { Notification_C } from "@/components/Notification_C";
+import Header_C from "@/components/Header_C";
 
 export const metadata: Metadata = {
   title: "My App",
@@ -20,7 +21,10 @@ export default function RootLayout({
       </head>
       <body>
         <StoreProvider>
-          <Notification_C />
+          <header className="header">
+            <Notification_C />
+            <Header_C />
+          </header>
           {children}
         </StoreProvider>
       </body>

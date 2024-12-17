@@ -22,7 +22,7 @@ export const initialNotification: NOTIFICATION_INTERFACE = {
     number: "01126884803",
     link: "tel:01126884803",
   },
-  message: "hello world",
+  message: "hello from our helth company website store",
   currency: [
     {
       name: "USD",

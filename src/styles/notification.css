@@ -1,13 +1,16 @@
 .main_container {
-  @apply text-white h-16 flex items-center justify-between;
+  @apply text-white h-16 flex items-center;
+  @apply lg:justify-between justify-end;
 }
 
 .phone_container {
-  @apply flex items-center gap-3;
+  @apply items-center gap-3;
+  @apply lg:flex hidden;
 }
 
 .message_container {
   @apply capitalize font-bold;
+  @apply lg:block hidden;
 }
 
 .currency_container {
@@ -19,9 +22,10 @@
 }
 
 .currency_modal {
-  @apply absolute top-6 right-0 bg-white/70 text-black font-semibold px-12 rounded-md shadow-md;
+  @apply absolute top-6 right-2 bg-white/70 text-black font-semibold w-28 rounded-md shadow-md overflow-hidden;
 }
 
 .currency_modal_item {
-  @apply cursor-pointer py-1;
+  @apply cursor-pointer py-1 w-full flex items-center justify-center;
+  @apply hover:bg-gray-300;
 }

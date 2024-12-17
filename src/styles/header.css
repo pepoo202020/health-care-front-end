@@ -1,0 +1,167 @@
+.header_container {
+  @apply w-full flex justify-between items-center  py-2  shadow-md;
+}
+@keyframes scale_bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.header_logo:hover {
+  animation: scale_bounce 0.8s ease infinite;
+}
+
+.header_nav {
+  @apply gap-4 items-center;
+  @apply lg:flex hidden;
+}
+
+.header_nav_item {
+  @apply relative text-lg font-normal text-gray-600 hover:text-gray-900 hover:font-bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.header_nav > .active {
+  @apply font-bold border-black underline-offset-8 text-gray-900 cursor-none;
+}
+
+.header_nav > .active::after {
+  content: "";
+  @apply absolute w-full h-1 -bottom-3 left-0 bg-gray-900;
+}
+
+.header_nav_item:not(.active)::after {
+  content: "";
+  @apply absolute w-0 h-1 -bottom-3 left-0 bg-gray-900;
+  transition: width 0.3s ease-in-out;
+}
+
+.header_nav_item:not(.active):hover::after {
+  @apply w-full;
+}
+
+.header_icons {
+  @apply gap-4 items-center;
+  @apply lg:flex hidden;
+}
+
+.header_icon {
+  @apply text-gray-600 hover:text-gray-900 cursor-pointer transition-all duration-300 ease-in-out text-3xl;
+}
+
+.header_profile_icon {
+  @apply relative lg:block hidden;
+}
+
+.profile_modal {
+  @apply absolute top-10 -right-4 bg-white shadow-lg rounded-lg p-4 flex flex-col items-center gap-4;
+}
+
+.profile_modal > .main_information {
+  @apply flex flex-col items-center gap-1 border-b-2 border-gray-200 pb-2;
+}
+
+.profile_modal > .main_information > h1 {
+  @apply font-bold text-lg;
+}
+
+.profile_modal > .main_information > .email {
+  @apply text-gray-500;
+}
+
+.profile_modal > .profile_modal_contents {
+  @apply flex flex-col gap-2;
+}
+
+.profile_modal > .profile_modal_contents > .profile_modal_link {
+  @apply text-gray-600 hover:text-gray-900;
+}
+
+.padge_count {
+  @apply absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs;
+}
+
+.header_cart_icon > .padge_count {
+  @apply bg-[#0C3C5D];
+}
+
+.header_phone_menu {
+  @apply lg:hidden block;
+  @apply text-gray-600 hover:text-gray-900 cursor-pointer transition-all duration-300 ease-in-out text-3xl;
+}
+
+.header_phone_menu_modal {
+  @apply absolute top-0 right-0 w-screen h-screen z-[10000] bg-black/30;
+  @apply flex flex-col justify-center items-center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.header_phone_menu_modal_close {
+  @apply absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 cursor-pointer transition-all duration-300 ease-in-out text-3xl;
+}
+
+.header_phone_menu_modal.hide {
+  animation: slideOut 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.notification_message {
+  @apply absolute top-0 left-0 m-4 text-white text-sm capitalize font-semibold;
+}
+
+.header_nav_phone {
+  @apply flex flex-col items-center gap-16;
+}
+
+.header_nav_item_phone {
+  @apply relative text-2xl font-normal text-gray-200 hover:text-white hover:font-bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.header_nav_phone > .active {
+  @apply font-bold border-white underline-offset-8 text-white cursor-none;
+}
+
+.header_nav_phone > .active::after {
+  content: "";
+  @apply absolute w-full h-1 -bottom-3 left-0 bg-white;
+}
+
+.header_nav_item_phone:not(.active)::after {
+  content: "";
+  @apply absolute w-0 h-1 -bottom-3 left-0 bg-white;
+  transition: width 0.3s ease-in-out;
+}
+
+.header_nav_item_phone:not(.active):hover::after {
+  @apply w-full;
+}
+
+.header_icons_phone {
+  @apply flex items-center gap-4 absolute bottom-5 left-1/2  -translate-x-1/2;
+}

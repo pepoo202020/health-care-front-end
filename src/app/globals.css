@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&family=Timmana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tapestry&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,5 +9,17 @@ body {
   @apply w-screen bg-[#EDF0EE] overflow-x-hidden;
 }
 .global_padding {
-  @apply px-14;
+  @apply lg:px-14 px-5;
+}
+
+.header {
+  @apply flex flex-col bg-[#EDF0EE] w-full sticky top-0 z-50;
+}
+
+.timmana {
+  font-family: "Timmana", sans-serif;
+}
+
+.tapestry {
+  font-family: "Tapestry", serif;
 }

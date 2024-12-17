@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "@/styles/notification.css";
 import CURRENCY_INTERFACE, {
   initialNotification,
@@ -34,7 +34,7 @@ const PhoneComponent = () => {
   );
 };
 
-const MessageComponent = () => {
+export const MessageComponent = () => {
   return <div className="message_container">{initialNotification.message}</div>;
 };
 
@@ -42,13 +42,31 @@ const CurrencyComponent = () => {
   const [showCurrencyModal, setShowCurrencyModal] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
   const currency = useAppSelector((state) => state.currency);
+  const currencyDivRef = useRef<HTMLDivElement>(null);
 
   const handleCurrencyChange = (currency: CURRENCY_INTERFACE) => {
     dispatch(setCurrency(currency));
     setShowCurrencyModal(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        currencyDivRef.current &&
+        !currencyDivRef.current.contains(event.target as Node)
+      ) {
+        setShowCurrencyModal(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showCurrencyModal]);
+
   return (
-    <div className="currency_container">
+    <div className="currency_container" ref={currencyDivRef}>
       <button
         onClick={() => setShowCurrencyModal(!showCurrencyModal)}
         className="currency_btn"
