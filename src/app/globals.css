@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rakkas&family=Timmana&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Tapestry&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -22,4 +24,16 @@ body {
 
 .tapestry {
   font-family: "Tapestry", serif;
+}
+
+.footer {
+  @apply flex w-full;
+}
+
+.anton {
+  font-family: "Anton", serif;
+}
+
+.abril-fatface {
+  font-family: "Abril Fatface", serif;
 }

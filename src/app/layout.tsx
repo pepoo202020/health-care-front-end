@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import StoreProvider from "./StoreProvider";
 import { Notification_C } from "@/components/Notification_C";
 import Header_C from "@/components/Header_C";
+import Footer_C from "@/components/Footer_C";
 
 export const metadata: Metadata = {
   title: "My App",
@@ -19,13 +20,16 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>
+      <body className="w-screen h-screen flex flex-col">
         <StoreProvider>
           <header className="header">
             <Notification_C />
             <Header_C />
           </header>
-          {children}
+          <div className="flex-1">{children}</div>
+          <footer className="footer">
+            <Footer_C />
+          </footer>
         </StoreProvider>
       </body>
     </html>

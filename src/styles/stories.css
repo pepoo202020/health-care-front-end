@@ -1,0 +1,60 @@
+.stories_main_container {
+  @apply flex items-center justify-center py-2 gap-10;
+}
+
+.stories_container {
+  @apply flex items-center justify-center gap-5 lg:gap-10;
+}
+
+.story_container {
+  @apply relative lg:w-[115px] lg:h-[115px] w-[95px] h-[95px] rounded-full flex items-center justify-center cursor-pointer;
+  @apply before:content-[''] before:absolute before:inset-0 before:rounded-full;
+  @apply before:bg-gradient-to-r before:from-[#0C3C5D] before:via-[#1a4d72] before:to-[#0C3C5D];
+  @apply hover:before:animate-spin;
+  @apply after:content-[''] after:absolute after:inset-0 after:rounded-full;
+  @apply after:bg-gradient-to-br after:from-[#0C3C5D]/80 after:via-transparent after:to-[#1a4d72]/60;
+  @apply hover:after:animate-pulse;
+}
+
+.story_container img {
+  @apply absolute w-[calc(100%-10px)] h-[calc(100%-10px)] rounded-full object-cover z-10;
+}
+
+.story_container .opacity_contianer {
+  @apply absolute w-[calc(100%-10px)] h-[calc(100%-10px)] rounded-full z-20 bg-[#0C3C5D]/50;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.story_video_modal {
+  @apply fixed top-0 left-0 w-full h-full bg-black/80 flex items-center justify-center z-[10000];
+}
+
+.story_video_modal .modal_content {
+  @apply relative w-[90%] max-w-[1200px];
+}
+
+.story_video_modal .modal_content .modal_video {
+  @apply w-full h-auto max-h-[90vh];
+}
+
+.story_video_modal .modal_content .close_btn {
+  @apply absolute -top-10 -right-10 bg-none text-white text-3xl cursor-pointer;
+}
