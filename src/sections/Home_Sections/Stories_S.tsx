@@ -29,10 +29,10 @@ export default function Stories_S() {
   useEffect(() => {
     startInterval();
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth > 1114) {
         setStoriesPerView(10); //Desktop
-      } else if (window.innerWidth >= 768) {
-        setStoriesPerView(8); //Tablet
+      } else if (window.innerWidth >= 914) {
+        setStoriesPerView(6); //Tablet
       } else if (window.innerWidth >= 480) {
         setStoriesPerView(4); //Large Mobile
       } else {

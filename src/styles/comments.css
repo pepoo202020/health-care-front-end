@@ -1,0 +1,93 @@
+.comments_section_container {
+  @apply flex w-full flex-col items-center justify-center my-2;
+}
+
+.comment_main_container {
+  @apply relative w-full flex justify-center items-center space-x-4 my-3;
+}
+
+.comment_main_container .comment_container {
+  @apply w-full flex items-center justify-center transition-all duration-1000 ease-in-out;
+}
+
+.comment_main_container .comment_container.centered_comment {
+  @apply scale-100 opacity-100 z-10 blur-0;
+}
+
+.comment_main_container .comment_container.uncentered_comment {
+  @apply scale-75 opacity-75 z-0 blur-sm;
+}
+
+.comment_main_container .comment_container .comment_content_container {
+  @apply px-[46px] pb-[42px] gap-1 bg-white shadow-md rounded-lg text-center flex flex-col items-center justify-center;
+}
+.comment_content_container .comment_content_avatar {
+  @apply w-[142px] h-[142px] rounded-full  border-4 border-[#0C3C5D] -mt-[75px] object-cover;
+}
+
+.comment_content_container .commment_content_title {
+  @apply text-4xl font-bold text-[#0C3C5D];
+}
+
+.comment_content_container .comment_content_text {
+  @apply text-2xl text-[#0C3C5D] font-semibold leading-tight;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .comment_main_container {
+    @apply space-x-2 mt-5;
+  }
+
+  .comment_main_container .comment_container {
+    @apply hover:scale-105 transition-transform duration-300;
+  }
+
+  .comment_main_container .comment_container .comment_content_container {
+    @apply px-[20px] pb-[20px];
+    @apply hover:shadow-lg transform transition-all duration-300;
+  }
+
+  .comment_content_container .comment_content_avatar {
+    @apply w-[100px] h-[100px] -mt-[50px];
+    @apply hover:rotate-6 transition-transform duration-300;
+  }
+
+  .comment_content_container .commment_content_title {
+    @apply text-2xl;
+  }
+
+  .comment_content_container .comment_content_text {
+    @apply text-lg;
+  }
+}
+
+@media (max-width: 480px) {
+  .comment_main_container {
+    @apply space-x-1 mt-5;
+  }
+  .comment_main_container .comment_container {
+    @apply hover:scale-105 transition-transform duration-300;
+  }
+  .comment_main_container .comment_container .comment_content_container {
+    @apply px-[15px] pb-[15px];
+    @apply hover:shadow-lg transform transition-all duration-300;
+  }
+
+  .comment_content_container .comment_content_avatar {
+    @apply w-[80px] h-[80px] -mt-[40px];
+    @apply hover:rotate-6 transition-transform duration-300;
+  }
+
+  .comment_content_container .commment_content_title {
+    @apply text-xl;
+  }
+
+  .comment_content_container .comment_content_text {
+    @apply text-base;
+  }
+
+  .comment_main_container .comment_container.uncentered_comment {
+    @apply hidden;
+  }
+}

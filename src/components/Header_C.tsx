@@ -14,6 +14,7 @@ import {
 } from "react-icons/io5";
 import { profileContents } from "@/constants/profile_contents";
 import { initialNotification } from "@/constants/notification";
+import { useAppSelector } from "@/lib/hooks";
 
 export default function Header_C() {
   return (
@@ -134,17 +135,17 @@ const Profile_Modal_C = () => {
 };
 
 const Wishlist_Icon_C = () => {
-  const wishlist = 2;
+  const wishlist = useAppSelector((state) => state.wishlist);
   return (
     <Link href={"/wishlists"}>
       <div className="header_wishlist_icon relative">
         <IoHeartOutline
           className="header_icon"
-          color={wishlist > 0 ? "red" : "black"}
+          color={wishlist.items.length > 0 ? "red" : "black"}
         />
-        {wishlist > 0 && (
+        {wishlist.items.length > 0 && (
           <div className="padge_count">
-            <p>{wishlist}</p>
+            <p>{wishlist.items.length}</p>
           </div>
         )}
       </div>

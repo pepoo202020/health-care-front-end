@@ -1,0 +1,15 @@
+.gallery_section_container {
+  @apply flex flex-col items-center justify-center my-2;
+}
+
+.gallery_iamges_container {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-10 md:py-20;
+}
+
+.gallery_image_container {
+  @apply mb-4 break-inside-avoid;
+}
+
+.gallery_image {
+  @apply w-full object-cover rounded-lg;
+}

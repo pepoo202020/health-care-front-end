@@ -1,4 +1,5 @@
 .hero_container {
+  @apply relative; /* Ensures hero_container establishes its own stacking context */
   @apply w-full flex justify-center items-center gap-20;
   @apply flex-col lg:flex-row;
   @apply px-4 lg:px-20;
@@ -36,6 +37,7 @@
   @apply relative lg:absolute;
   @apply mx-auto lg:-right-32 lg:-bottom-20;
   @apply mt-8 lg:mt-0;
+  @apply mb-0 lg:-mb-5;
   box-shadow: 2px 2px 4px 1px rgba(12, 60, 93, 0.3);
   backdrop-filter: blur(8px);
 }
@@ -65,7 +67,7 @@
 }
 
 .cates_content_container {
-  @apply absolute bg-white/50 top-full mt-2 w-[250px] rounded-lg border border-[#4FDA81] shadow-lg z-50;
+  @apply absolute bg-white/50  -top-full mt-2 w-[250px] rounded-lg border border-[#4FDA81] shadow-lg z-[10000]; /* Ensures it is in a higher stacking context */
   @apply flex flex-col items-center justify-start overflow-y-auto overflow-x-hidden;
   @apply h-[200px] lg:h-[300px];
   @apply left-0 lg:left-[250px];
@@ -89,5 +91,43 @@
 @media (max-width: 480px) {
   .hero_container {
     @apply gap-4;
+  }
+}
+
+/* Add this media query for Surface Duo specific width */
+@media screen and (width: 1114px) {
+  .hero_search_container {
+    @apply relative;
+    @apply right-0;
+    @apply bottom-0;
+    @apply w-[80%];
+    @apply mx-auto;
+  }
+
+  .hero_container {
+    @apply gap-10;
+    @apply px-12;
+  }
+
+  .hero_header {
+    @apply text-4xl;
+  }
+
+  .hero_slogan_container {
+    @apply text-2xl;
+    @apply mx-6;
+  }
+  @media screen and (width: 1114px) {
+    .hero_search_container {
+      @apply w-[600px];
+      @apply relative;
+      @apply right-0;
+      @apply mx-auto;
+      @apply mt-8;
+      @apply mb-0;
+      box-shadow: 2px 2px 6px rgba(12, 60, 93, 0.25);
+      background: rgba(245, 245, 245, 0.98);
+      backdrop-filter: blur(16px);
+    }
   }
 }

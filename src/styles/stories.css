@@ -1,4 +1,5 @@
 .stories_main_container {
+  @apply relative z-[5]; /* Assign a lower z-index to the stories section */
   @apply flex items-center justify-center py-2 gap-10;
 }
 

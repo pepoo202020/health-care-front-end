@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import currencyReducer from "./slices/currencySlice";
+import wishlistReducer from "./slices/wishlistSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       currency: currencyReducer,
+      wishlist: wishlistReducer,
     },
   });
 };
